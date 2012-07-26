@@ -16,7 +16,7 @@ DBSession = scoped_session(maker)
 # Base class for all of our model classes: By default, the data model is
 # defined with SQLAlchemy's declarative extension, but if you need more
 # control, you can switch to the traditional method.
-DeclarativeBase = declarative_base(metaclass=DeclarativeMeta)
+DeclarativeBase = declarative_base()
 
 # There are two convenient ways for you to spare some typing.
 # You can have a query property on all your model classes by doing this:
@@ -45,10 +45,11 @@ class Address(DeclarativeBase):
     name = Column(String(30))
     prefix = Column(String(2))
     type = Column(String(4))
+    type_dtmf = Column(String(4))
     startlat = Column(Float(precision=8))
-    stoplat = Column(Float(precision=8))
+    endlat = Column(Float(precision=8))
     startlong = Column(Float(precision=8))
-    stoplong = Column(Float(precision=8))
+    endlong = Column(Float(precision=8))
     leftzip = Column(Integer(5))
     rightzip = Column(Integer(5))
     leftaddr1 = Column(String(11))
